@@ -37,7 +37,7 @@ nav a:hover:not(.selected) {
 div.main {
    margin-left: 200px;
    padding: 1px 16px;
-   height: 1000px;
+   height: 900px;
    /* display: inline-block; */
  }
 
@@ -78,4 +78,12 @@ username {
    resize: both;
    width: 400px;
    margin:0 auto;
+}
+
+.button {
+   border-radius: 8px;
+   background-color: #2f77e4;
+   color: white;
+   padding: 10px;
+   text-align: center;
 }
