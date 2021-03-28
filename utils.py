@@ -2,6 +2,7 @@ from collections import defaultdict
 import glob
 import pickle
 
+
 def show_results():
     videoData = {}
     userdict = defaultdict(lambda: defaultdict(lambda: 0))
@@ -25,6 +26,7 @@ def show_results():
         videoData[videoId]["total_yawns"] = userdict[videoId]["total_yawns"] / userC
     return videoData
 
+
 def calc_results(username, videoId, frameCount, cfg, total_blinks, total_drowsiness, total_yawns):
     try: 
         with open(str(username)+".pickle", "rb") as f:
@@ -35,7 +37,8 @@ def calc_results(username, videoId, frameCount, cfg, total_blinks, total_drowsin
     if videoId not in results:
         results[videoId] = (0, 0, 0, 0)
     res = results[videoId]
-    results[videoId] = (res[0]+frameCount/cfg.getint('CAMERA', 'fps'), res[1]+total_blinks[videoId], res[2]+total_drowsiness[videoId], res[3]+total_yawns[videoId])
+    results[videoId] = (res[0]+frameCount/cfg.getint('CAMERA', 'fps'), res[1]+total_blinks[videoId],
+                        res[2]+total_drowsiness[videoId], res[3]+total_yawns[videoId])
     
     # dump pickle file
     with open(str(username)+".pickle", "wb") as f:

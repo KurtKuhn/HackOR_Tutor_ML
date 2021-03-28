@@ -1,5 +1,6 @@
 import cv2
 
+
 class VideoRecorder():
     def __init__(self):
         self.video_cam = cv2.VideoCapture(0)
