@@ -139,12 +139,15 @@ def video_stop():
     total_yawns.clear()
     blink_counter, yawn_counter = 0, 0
     print("resource released!")
-    return {}
+
+    videoData = show_results()
+
+    return render_template('results.html', videoData = videoData)
 
 @app.route('/results')
 def results():
     videoData = show_results()
-    return render_template('results.html', videoData=videoData)
+    return render_template('results.html', videoData = videoData)
 
 
 if __name__ == "__main__":
